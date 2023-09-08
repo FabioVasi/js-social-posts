@@ -113,9 +113,9 @@ for (let i = 0; i < posts.length; i++) {
 
     console.log(post['author']);
 
-    console.log(post['author']['name']); // accedo al valore dell'oggetto tramite array
+    console.log(post.author.name); // accedo al valore dell'oggetto tramite array
 
-    console.log(post['author'].image); //accedo al valore dell'oggetto con dot notation
+    console.log(post.author.image); //accedo al valore dell'oggetto con dot notation
 
     console.log(post['likes']);
 
@@ -163,7 +163,7 @@ for (let i = 0; i < posts.length; i++) {
 
 let likeCounter = 0;
 
-document.querySelector('.like-button').addEventListener('click', function() {
+document.querySelectorAll('.like-button .js-likes-counter').addEventListener('click', function() {
 
     console.log(this);
 
@@ -173,7 +173,7 @@ document.querySelector('.like-button').addEventListener('click', function() {
 
     console.log(likeCounter);
 
-    this.classList.add(likeCounter);
+
 
 })
 
