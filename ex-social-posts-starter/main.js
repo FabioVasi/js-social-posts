@@ -97,7 +97,7 @@ const posts = [
 
 console.log(posts);
 
-const rowDomElement = document.querySelector('.posts-list');
+const domElement = document.querySelector('.posts-list');
 
 for (let i = 0; i < posts.length; i++) {
 
@@ -157,14 +157,23 @@ for (let i = 0; i < posts.length; i++) {
     // loggo il markup in console
     //console.log(markup);
     // stampo in pagina le card partendo dalla prima in ordine cronologico
-    rowDomElement.insertAdjacentHTML('beforeend', markup);
+    domElement.insertAdjacentHTML('beforeend', markup);
 
 }
+
+let likeCounter = 0;
+
+
 
 document.querySelector('.like-button').addEventListener('click', function() {
 
     console.log(this);
 
-    
+    likeCounter += 1;
+
+    console.log(likeCounter);
+
+    document.getElementById('like-counter-1') = likeCounter + 1;
 
 })
+
