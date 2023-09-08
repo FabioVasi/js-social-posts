@@ -77,7 +77,7 @@ const posts = [
         media: "https://unsplash.it/600/400?image=24",
         author: {
             name: "Luca Formicola",
-            image: null
+            image: "https://unsplash.it/300/300?image=10"
         },
         likes: 56,
         created: "2021-04-03"
@@ -111,7 +111,11 @@ for (let i = 0; i < posts.length; i++) {
 
     console.log(post['media']);
 
-    console.log(post['author[name, image]']);
+    console.log(post['author']);
+
+    console.log(post['author']['name']); // accedo al valore dell'oggetto tramite array
+
+    console.log(post['author'].image); //accedo al valore dell'oggetto con dot notation
 
     console.log(post['likes']);
 
@@ -119,14 +123,14 @@ for (let i = 0; i < posts.length; i++) {
 
     // creo una costante per l'aggiunta del markup che voglio visualizzare in pagina
     const markup = `
-    <div class="post">
+    <div class="post" id="post_${post['id']}">
         <div class="post__header">
             <div class="post-meta">                    
                 <div class="post-meta__icon">
-                    <img class="profile-pic" src="${post['author']}" alt="Phil Mangione">                    
+                    <img class="profile-pic" src="${post['author'].image}" alt="Phil Mangione">                    
                 </div>
                 <div class="post-meta__data">
-                    <div class="post-meta__author">${post['author']}</div>
+                    <div class="post-meta__author">${post['author'].name}</div>
                     <div class="post-meta__time">${post['created']}</div>
                 </div>                    
             </div>
@@ -156,3 +160,11 @@ for (let i = 0; i < posts.length; i++) {
     rowDomElement.insertAdjacentHTML('beforeend', markup);
 
 }
+
+document.querySelector('.like-button').addEventListener('click', function() {
+
+    console.log(this);
+
+    
+
+})
