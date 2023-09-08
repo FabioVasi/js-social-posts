@@ -163,17 +163,17 @@ for (let i = 0; i < posts.length; i++) {
 
 let likeCounter = 0;
 
-
-
 document.querySelector('.like-button').addEventListener('click', function() {
 
     console.log(this);
+
+    this.classList.add('like-button--liked');
 
     likeCounter += 1;
 
     console.log(likeCounter);
 
-    document.getElementById('like-counter-1') = likeCounter + 1;
+    this.classList.add(likeCounter);
 
 })
 
