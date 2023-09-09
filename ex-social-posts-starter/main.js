@@ -113,7 +113,7 @@ for (let i = 0; i < posts.length; i++) {
 
     console.log(post['author']);
 
-    console.log(post.author.name); // accedo al valore dell'oggetto tramite array
+    console.log(post.author.name);
 
     console.log(post.author.image); //accedo al valore dell'oggetto con dot notation
 
@@ -148,7 +148,7 @@ for (let i = 0; i < posts.length; i++) {
                     </a>
                 </div>
                 <div class="likes__counter">
-                    Piace a <b id="like-counter-1" class="js-likes-counter">${post['likes']}</b> persone
+                    Piace a <b id="like-counter-${post['id']}" class="js-likes-counter">${post['likes']}</b> persone
                 </div>
             </div> 
         </div>            
@@ -161,19 +161,69 @@ for (let i = 0; i < posts.length; i++) {
 
 }
 
-let likeCounter = 0;
+const likeButtons = document.querySelectorAll('.like-button');
 
-document.querySelectorAll('.like-button .js-likes-counter').addEventListener('click', function() {
+likeButtons.forEach(button => {
 
-    console.log(this);
+    button.addEventListener('click', function(ev) {
 
-    this.classList.add('like-button--liked');
+        ev.preventDefault();
 
-    likeCounter += 1;
+        const postId = parseInt(this.getAttribute('data-postid'));
 
-    console.log(likeCounter);
+        const likeCountId = `like-counter-${postId}`;
 
+        const post = findPost(posts, postId);
 
+        const isLikeActive = this.classList.contains('like-button--liked');
+
+        const likeCount = document.getElementById(likeCountId);
+
+        if(post) {
+
+            console.log('questo è il post ' + post.id);
+
+            if(! isLikeActive) {
+
+                post.likes += 1;
+
+                likeCount.textContent = post.likes;
+
+                this.classList.add('like-button--liked');
+
+            }
+
+            if(isLikeActive) {
+
+                post.likes -= 1;
+
+                likeCount.textContent = post.likes;
+
+                this.classList.remove('like-button--liked');
+
+            }
+        } 
+
+        console.log(isLikeActive);
+
+    })
 
 })
 
+function findPost(posts, postId) {
+
+    let foundPost = null;
+
+    posts.forEach(post => {
+
+        if(post.id === postId) {
+
+            foundPost = post;
+
+        }
+
+    })
+
+    return foundPost;
+
+}
