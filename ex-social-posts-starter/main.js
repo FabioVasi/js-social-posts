@@ -97,6 +97,8 @@ const posts = [
 
 console.log(posts);
 
+
+
 const domElement = document.querySelector('.posts-list');
 
 for (let i = 0; i < posts.length; i++) {
@@ -163,6 +165,8 @@ for (let i = 0; i < posts.length; i++) {
 
 const likeButtons = document.querySelectorAll('.like-button');
 
+let likedPosts = []
+
 likeButtons.forEach(button => {
 
     button.addEventListener('click', function(ev) {
@@ -183,6 +187,8 @@ likeButtons.forEach(button => {
 
             console.log('questo è il post ' + post.id);
 
+            
+
             if(! isLikeActive) {
 
                 post.likes += 1;
@@ -190,6 +196,10 @@ likeButtons.forEach(button => {
                 likeCount.textContent = post.likes;
 
                 this.classList.add('like-button--liked');
+
+                likedPosts.push(post.id);
+
+                console.log(likedPosts);
 
             }
 
