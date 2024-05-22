@@ -33,7 +33,7 @@ Consigli del giorno:
 Ragioniamo come sempre a step. Prima scriviamo nei commenti la logica in italiano e poi traduciamo in codice. console.log() è nostro amico. Quando un pezzo di codice funziona, chiediamoci se possiamo scomporlo in funzioni più piccole.
 
 Nota (bonus extra) - super opzionale:
-Poiché é la parte logica ad interessarci in questa fase del corso, nello starter kit c'é il marup che potete usare per volgere l'esercizio.
+Poiché é la parte logica ad interessarci in questa fase del corso, nello starter kit c'é il markup che potete usare per volgere l'esercizio.
 Se finite la parte logica ed i vari bonus e vi avanza tempo per giocare un pó, pensate pure ad un layout differente e lavorateci su come bonus extra.
 */
 
